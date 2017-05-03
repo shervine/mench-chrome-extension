@@ -2,6 +2,8 @@
 
 //var WEBSITE = 'http://shervin.usnetwork.space';
 var WEBSITE = 'http://us.foundation';
+var EXTENSIONID = chrome.runtime.id;
+$('body').append('<style>@font-face{font-family:\'Glyphicons Halflings\';src:url(chrome-extension://'+EXTENSIONID+'/glyphicons-halflings-regular.eot);src:url(chrome-extension://'+EXTENSIONID+'/glyphicons-halflings-regular.eot?#iefix) format(\'embedded-opentype\'),url(chrome-extension://'+EXTENSIONID+'/glyphicons-halflings-regular.woff2) format(\'woff2\'),url(chrome-extension://'+EXTENSIONID+'/glyphicons-halflings-regular.woff) format(\'woff\'),url(chrome-extension://'+EXTENSIONID+'/glyphicons-halflings-regular.ttf) format(\'truetype\'),url(chrome-extension://'+EXTENSIONID+'/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format(\'svg\')}</style>');
 
 
 function parents(grandpa_id){
@@ -107,7 +109,7 @@ if(!$( "#mainUsPlayer" ).hasClass( "us-player")){
 	
 	$('#watch-header').before(
 		 '<div id="mainUsPlayer" class="us-player"><div>'
-			 + '<div id="initialLoader"><img style="margin:15px 0;" src="chrome-extension://mgdoadincellakcmdpobfleifadheffk/load.gif" /> Loading...</div>'
+			 + '<div id="initialLoader"><img style="margin:15px 0;" src="chrome-extension://'+EXTENSIONID+'/load.gif" /> Loading...</div>'
 			 + '<div id="videoStatus"></div>'
 			 + '<div id="userStatus"></div>'
 			 + '<div id="UsController">'
@@ -122,7 +124,7 @@ if(!$( "#mainUsPlayer" ).hasClass( "us-player")){
 				 	+ '<label class="control-label">Notes <span class="glyphicon glyphicon-info-sign" aria-hidden="true" title="Explain your understandinf of how this video snippet related to the gem idea." data-toggle="tooltip"></span></label><textarea id="notesValue" class="form-control" rows="3"></textarea>'
 				 + '</div>'
 				 + '<div>'
-				 	+ '<a id="savePostData" href="javascript:void(0);" class="btn btn-primary" style="margin:15px 0 0 15px;">Collect Gem <img src="chrome-extension://mgdoadincellakcmdpobfleifadheffk/diamond.png" width="20" /></a>'				 
+				 	+ '<a id="savePostData" href="javascript:void(0);" class="btn btn-primary" style="margin:15px 0 0 15px;">Collect Gem <img src="chrome-extension://'+EXTENSIONID+'/diamond.png" width="20" /></a>'				 
 				 	+ '<div id="saveUpdates"></div>'
 				+ '</div>'
 			+ '</div>'
