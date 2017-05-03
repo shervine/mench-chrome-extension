@@ -1,0 +1,131 @@
+
+.us-player{
+	margin: 0 0 10px;
+    border: 4px solid #000;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 15px;
+    padding-bottom: 5px;
+    padding-top:0px;
+    position: relative;
+    text-align:center;
+    background-color: #f3f3f3;
+}
+
+.us-player * {
+	border-radius:0 !important;
+}
+
+
+.us-player>div{
+	max-width:450px;
+	margin:0 auto;
+	padding:5px 0;
+}
+
+.us-player a {
+	color:#31d2f7;
+	text-decoration:none;
+}
+
+.us-player a:hover {
+	color:#000;
+	text-decoration:none;
+}
+.btn-primary, .btn-primary:active {
+    margin: 15px 0 0 15px;
+    border: 3px solid #000;
+    background-color: #FFF;
+    color:#000 !important;
+    font-size: 1.4em;
+    font-weight:normal !important;
+}
+.btn-primary:hover {
+    background-color: #000 !important;
+    color:#FFF !important;
+    border: 3px solid #000;
+}
+
+.glyphicon-info-sign { font-size:0.8em; }
+
+.input-group-addon {
+	font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    padding:3px 6px;
+}
+#UsController { display:none; }
+#UsController>div {
+	margin-top:15px;
+}
+#UsController label {
+	font-size:1.4em;
+	font-weight: normal;
+}
+.permanentHide{ display:none !important; }
+
+.us-player p {
+	margin:5px -10px 12px;
+	font-size:1.2em;
+}
+.trim {
+	padding-right: 5px !important;
+    padding-left: 5px !important;
+}
+.alert {
+	margin:10px 0;
+}
+
+#selectedValue {
+	border: 1px solid #CCC;
+    padding: 6px;
+    font-size: 17px;
+    background-color: #EFEFEF;
+    display: inline-block;
+    margin-top: 0px;
+    color:#000;
+    text-decoration:none;
+    width:100%
+}
+
+#selectedValue:hover {
+    background-color: #FFF;
+    color:#666;
+    text-decoration:none;
+}
+
+
+/* Search CSS */
+.add_node{
+	display:block;
+	color:#000;
+}
+.algolia-autocomplete {
+  width: 100%;
+  text-align:left !important;
+  font-size:1.3em !important;
+}
+.algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+  width: 100%;
+}
+.algolia-autocomplete .aa-hint {
+  color: #999;
+}
+.algolia-autocomplete .aa-dropdown-menu {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-top: none;
+}
+.add_node, .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+  cursor: pointer;
+  padding: 5px 4px;
+}
+.add_node:hover, .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+  background-color: #B2D7FF;
+  text-decoration:none;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+  font-weight: bold;
+  font-style: normal;
+}

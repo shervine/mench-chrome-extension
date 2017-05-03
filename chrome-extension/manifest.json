@@ -1,0 +1,47 @@
+{
+  "name": "Gem Bingo",
+  "version": "0.1",
+  "description": "The Internet is full of Gems. It's up to Us to collect them.",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },  
+  "web_accessible_resources": [
+    "contentscript.js",
+    "diamond.png",
+    "load.gif",
+    "bootstrap.css",
+    "include.css",
+    "jquery.min.js",
+    "algoliasearch.min.js",
+    "autocomplete.jquery.min.js",
+    "bootstrap.min.js",
+    "glyphicons-halflings-regular.ttf",
+    "glyphicons-halflings-regular.woff",
+    "glyphicons-halflings-regular.woff2"
+  ],
+  "content_scripts": [{
+    "matches": [
+        "https://www.youtube.com/watch*"
+    ],
+    "css": ["bootstrap.css","include.css"],
+	"js": ["jquery.min.js","algoliasearch.min.js","bootstrap.min.js","autocomplete.jquery.min.js"]
+  }],
+   "externally_connectable": {
+  	  "matches": ["http://shervin.usnetwork.space/*","*://us.foundation/*"]
+   },
+   "browser_action" : {
+	    "default_icon" : "diamond.png",
+	    "default_title" : "US Foundation"
+   },
+  "permissions" : [
+    "tabs",
+    "activeTab",
+    "https://www.youtube.com/watch*"
+  ],
+  "icons" : {
+    "48" : "diamond.png",
+    "128" : "diamond.png"
+  },
+  "manifest_version": 2
+}
