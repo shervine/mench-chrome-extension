@@ -1,14 +1,16 @@
 {
-  "name": "Gem Bingo",
-  "version": "0.1",
-  "description": "The Internet is full of Gems. It's up to Us to collect them.",
+  "name": "Gem",
+  "version": "0.2",
+  "description": "Collect insight from the internet and earn points.",
   "background": {
     "scripts": ["background.js"],
     "persistent": false
   },  
   "web_accessible_resources": [
     "contentscript.js",
-    "diamond.png",
+    "diamond_16.png",
+    "diamond_48.png",
+    "diamond_128.png",
     "load.gif",
     "bootstrap.css",
     "include.css",
@@ -25,23 +27,22 @@
         "https://www.youtube.com/watch*"
     ],
     "css": ["bootstrap.css","include.css"],
-	"js": ["jquery.min.js","algoliasearch.min.js","bootstrap.min.js","autocomplete.jquery.min.js"]
+	"js": ["jquery.min.js","algoliasearch.min.js","autocomplete.jquery.min.js","bootstrap.min.js"]
   }],
    "externally_connectable": {
   	  "matches": ["http://shervin.usnetwork.space/*","*://us.foundation/*"]
    },
    "browser_action" : {
-	    "default_icon" : "diamond.png",
-	    "default_title" : "US Foundation"
+	    "default_icon" : "diamond_48.png",
+	    "default_title" : "Gem"
    },
   "permissions" : [
     "tabs",
     "activeTab",
-    "https://www.youtube.com/watch*"
+    "storage"
   ],
-  "icons" : {
-    "48" : "diamond.png",
-    "128" : "diamond.png"
-  },
+  "icons": { "16": "diamond_16.png",
+           "48": "diamond_48.png",
+          "128": "diamond_128.png" },
   "manifest_version": 2
 }
