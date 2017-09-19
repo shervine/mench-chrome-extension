@@ -1,48 +1,36 @@
 {
-  "name": "Gem",
-  "version": "0.2",
-  "description": "Collect insight from the internet and earn points.",
+  "name": "Mench",
+  "version": "1.0",
+  "description": "A Toolkit for content creators to save and share ideas from web content.",
   "background": {
     "scripts": ["background.js"],
     "persistent": false
   },  
   "web_accessible_resources": [
-    "contentscript.js",
-    "diamond_16.png",
-    "diamond_48.png",
-    "diamond_128.png",
-    "load.gif",
-    "bootstrap.css",
-    "include.css",
-    "jquery.min.js",
-    "algoliasearch.min.js",
-    "autocomplete.jquery.min.js",
-    "bootstrap.min.js",
-    "glyphicons-halflings-regular.ttf",
-    "glyphicons-halflings-regular.woff",
-    "glyphicons-halflings-regular.woff2"
+    "square_16.png",
+    "square_48.png",
+    "square_128.png"
   ],
   "content_scripts": [{
     "matches": [
-        "https://www.youtube.com/watch*"
+        "<all_urls>"
     ],
-    "css": ["bootstrap.css","include.css"],
-	"js": ["jquery.min.js","algoliasearch.min.js","autocomplete.jquery.min.js","bootstrap.min.js"]
-  }],
+    "css": ["include.css"]
+   }],
    "externally_connectable": {
-  	  "matches": ["http://shervin.usnetwork.space/*","*://us.foundation/*"]
+  	  "matches": ["http://shervin.usnetwork.space/*","*://us.foundation/*","*://mench.ai/*"]
    },
    "browser_action" : {
-	    "default_icon" : "diamond_48.png",
-	    "default_title" : "Gem"
+	    "default_icon" : "square_48.png",
+	    "default_title" : "Mench",
+	    "default_popup": "popup.html"
    },
   "permissions" : [
-    "tabs",
     "activeTab",
     "storage"
   ],
-  "icons": { "16": "diamond_16.png",
-           "48": "diamond_48.png",
-          "128": "diamond_128.png" },
+  "icons": { "16": "square_16.png",
+           "48": "square_48.png",
+          "128": "square_128.png" },
   "manifest_version": 2
 }

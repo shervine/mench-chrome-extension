@@ -1,37 +1,112 @@
-<!doctype html>
-<!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- -->
 <html>
   <head>
-    <title>Getting Started Extension's Popup</title>
-    <style>
-      body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
-      }
-      #status {
-        /* avoid an excessively wide status text */
-        white-space: pre;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
-      }
-    </style>
-
+    <title>Gem</title>
+    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="bootstrap.css" rel="stylesheet">
+    <link href="include.css" rel="stylesheet">
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
       -
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
      -->
+    <script src="jquery.min.js"></script>
+    <script src="algoliasearch.min.js"></script>
+    <script src="autocomplete.jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
     <script src="popup.js"></script>
   </head>
-  <body>
-    <div id="status"></div>
-    <img id="image-result" hidden>
+  <body id="UsCEpopup">
+    <table style="width:100%;"><tr><td width="60"><h1>Us</h1></td><td><div id="message">sss</div></td></tr></table>
+	<div>
+	  <!-- Nav tabs -->
+	  <ul class="nav nav-tabs" role="tablist" id="mainTabs">
+	    <li role="presentation" id="tabSource" class=""><a href="#bodySource" aria-controls="bodySource" role="tab" data-toggle="tab">Source</a></li>
+	    <li role="presentation" id="tabGems" class=""><a href="#bodyGems" aria-controls="bodyGems" role="tab" data-toggle="tab">Gems</a></li>
+	    <li role="presentation" id="tabProfile" class="active pull-right"><a href="#bodyProfile" aria-controls="bodyProfile" role="tab" data-toggle="tab">Profile</a></li>
+	  </ul>
+	
+	  <!-- Tab panes -->
+	  <div class="tab-content">
+	  
+	  
+	  
+	    <div role="tabpanel" class="tab-pane" id="bodySource">
+	    	 <div class="form-group">
+			    <label for="addNewVideonode">#Intent <span class="glyphicon glyphicon-asterisk" title="Required field" aria-hidden="true"></span> <span class="glyphicon glyphicon-info-sign" aria-hidden="true" title="Every Video is discussing a macro topic that inspired the discussions within the video. This helps Us understand what this video is all about." data-toggle="tooltip" data-placement="bottom"></span></label>
+			    <input type="text" class="form-control" placeholder="Search..." id="addNewVideonode" />
+			    <input type="hidden" id="selectedNewVideoNodeId" value="0" />
+			  </div>
+			  <div class="form-group">
+			    <label for="referencedPeople">@People <span class="glyphicon glyphicon-info-sign" aria-hidden="true" title="Who is in this video? Reference people who are talking and sharing #Intents." data-toggle="tooltip" data-placement="bottom"></span></label>
+			    <input type="text" class="form-control" id="referencedPeople" placeholder="Elon Musk, Peter Thiel" />
+			  </div>
+			  <div class="form-group">
+			    <label for="referencedOrganizations">@Organizations <span class="glyphicon glyphicon-info-sign" aria-hidden="true" title="Are there any organizations whom produced this video or directly contributed to its #Intents?" data-toggle="tooltip" data-placement="bottom"></span></label>
+			    <input type="text" class="form-control" id="referencedOrganizations" placeholder="Google, Y Combinator" />
+			  </div>
+			  <a id="addVideoButton" href="javascript:void(0);" class="btn btn-primary">Add Source</a>
+	    </div>
+
+	    
+	    
+	    
+	    
+	    <div role="tabpanel" class="tab-pane" id="bodyGems">
+	    	   <div class="form-group">
+			    <label for="addnode">#Intent <span class="glyphicon glyphicon-asterisk" title="Required field" aria-hidden="true"></span> <span class="glyphicon glyphicon-info-sign" aria-hidden="true" title="Which #Intent is being referenced in this video slice? Link to an existing #Intent or create a new one." data-toggle="tooltip" data-placement="bottom"></span></label>
+			    <input type="text" class="form-control" placeholder="Search..." id="addnode" />
+			    <input type="hidden" id="selectedNodeId" value="0" />
+			  </div>
+			  
+			  <div class="form-group">
+			    <label for="referencedValue">Reference Value <span class="glyphicon glyphicon-info-sign" aria-hidden="true" title="Which statement was referencing this intent?" data-toggle="tooltip" data-placement="bottom"></span></label>
+			    <input type="text" class="form-control" id="referencedValue" placeholder="" />
+			  </div>
+			  
+			  <table style="width:100%;"><tr>
+			  <td width="50%">
+			  	  <div class="form-group">
+				    <label>Start <span class="glyphicon glyphicon-info-sign" aria-hidden="true" title="When the #Intent starts being discussed in the video." data-toggle="tooltip" data-placement="bottom"></span></label>
+				    <div class="input-group"><span class="input-group-addon"><a id="injectStartTime" href="javascript:void(0);"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></span><input type="text" id="timeStart" class="form-control" placeholder="0:00" style="width:70px;" /></div>
+				  </div>
+			  </td>
+			  <td width="50%">
+			  	  <div class="form-group">
+				   	<label>End <span class="glyphicon glyphicon-info-sign" aria-hidden="true" title="The point where the #Intent is well explained." data-toggle="tooltip" data-placement="bottom"></span></label>
+				   	<div class="input-group"> <span class="input-group-addon"><a id="injectEndTime" href="javascript:void(0);"><span class="glyphicon glyphicon-stop" aria-hidden="true"></span></a></span> <input type="text" id="timeEnd" class="form-control" placeholder="0:00" style="width:70px;" /></div>
+				  </div>
+			  </td>
+			  </tr></table>
+			  
+			  <a id="savePostData" href="javascript:void(0);" class="btn btn-primary">Collect Gem</a>
+	    </div>
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    <div role="tabpanel" class="tab-pane active" id="bodyProfile">
+			  <div class="form-group">
+			    <label for="user_email">Email address <span class="glyphicon glyphicon-asterisk" title="Required field" aria-hidden="true"></span></label>
+			    <input type="email" class="form-control" id="user_email" />
+			  </div>
+			  <div class="form-group">
+			    <label for="user_pass">Password <span class="glyphicon glyphicon-asterisk" title="Required field" aria-hidden="true"></span></label>
+			    <input type="password" class="form-control" id="user_pass" />
+			  </div>
+			  <a id="userAttemptLogin" href="javascript:void(0);" class="btn btn-primary">Login</a> or <a href="https://us.foundation/signup" target="_blank">Register</a>
+	    </div>
+	    
+	    
+	    
+	    
+	  </div>
+	</div>
   </body>
 </html>
+
 
